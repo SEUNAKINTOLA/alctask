@@ -1,0 +1,16 @@
+
+git clone https://github.com/BolajiOlajide/UserManager
+cd UserManager
+npm install
+touch Dockerfile
+FROM node:carbon
+# Create app directory
+WORKDIR /usr/src/app
+COPY package*.json ./
+
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD [ "npm", "start" ]
+$ docker build -t <oluwaseun>/UserManager .
+$ docker run -p 49160:3000 -d <oluwaseun>/UserManager
